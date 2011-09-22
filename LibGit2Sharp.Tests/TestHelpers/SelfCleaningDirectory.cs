@@ -11,11 +11,6 @@ namespace LibGit2Sharp.Tests.TestHelpers
 
         public SelfCleaningDirectory(string path)
         {
-            if (Directory.Exists(path))
-            {
-                throw new InvalidOperationException(String.Format("Directory '{0}' already exists.", path));
-            }
-
             DirectoryPath = Path.GetFullPath(path);
         }
 

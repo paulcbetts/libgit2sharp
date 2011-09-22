@@ -345,8 +345,8 @@ namespace LibGit2Sharp.Tests
 
             using (var scd = new SelfCleaningDirectory(path + suffix))
             {
-                Directory.CreateDirectory(scd.RootedDirectoryPath);
-                Repository.Discover(scd.RootedDirectoryPath).ShouldBeNull();
+                Directory.CreateDirectory(scd.DirectoryPath);
+                Repository.Discover(scd.DirectoryPath).ShouldBeNull();
             }
 
             File.Delete(path);

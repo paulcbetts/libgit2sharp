@@ -279,7 +279,7 @@ namespace LibGit2Sharp.Tests
         [Test]
         public void CanRetrieveTheStatusOfTheWholeWorkingDirectory()
         {
-            using (var path = new TemporaryCloneOfTestRepo(Constants.StandardTestRepoWorkingDirPath))
+            using (var path = new TemporaryCloneOfTestRepo(Constants.StandardTestRepoWorkingDirName))
             using (var repo = new Repository(path.RepositoryPath))
             {
                 const string file = "modified_staged_file.txt";
@@ -346,7 +346,7 @@ namespace LibGit2Sharp.Tests
         [Test]
         public void UnstagingANonStagedFileThrows()
         {
-            using (var repo = new Repository(Constants.StandardTestRepoPath))
+            using (var repo = new Repository(TemporaryCloneOfTestRepo.ReadOnlyRepo(Constants.StandardTestRepoWorkingDirName).RepositoryPath))
             {
                 Assert.Throws<LibGit2Exception>(() => repo.Index.Unstage("shadowcopy_of_an_unseen_ghost.txt"));
             }
